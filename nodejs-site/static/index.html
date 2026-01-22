@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title> Site d'un traiteur</title>
+</head>
+
+<body>
+    <h1 id='entete'>Commander vos plats en ligne ! </h1>
+    <p>Que souhaitez-vous commander?</p>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <form action="menu/commande" method="post">
+            <select name="plat_id" ng-model="selection" ng-options="menu for menu in menus" multiple>
+            </select>
+            <p><input type="submit" value="Commander"></p>
+        </form>
+        <h3>Détail du menu :</h3>
+        <p>
+            ({{ detail.Description}}) {{ detail.Nom}} : {{detail.Details.CoutUnitaire}} €
+        </p>
+    </div>
+    <script src='angular.js'> </script>
+    <script src='controleur.js'> </script>
+</body>
+
+</html>
