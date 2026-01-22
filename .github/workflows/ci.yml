@@ -22,12 +22,13 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository }}/site-traiteur
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/site-traiteur
           docker build -t $IMAGE_NAME:latest .
           docker tag $IMAGE_NAME:latest $IMAGE_NAME:${{ github.sha }}
 
       - name: Push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository }}/site-traiteur
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/site-traiteur
           docker push $IMAGE_NAME:latest
           docker push $IMAGE_NAME:${{ github.sha }}
+
